@@ -5,7 +5,8 @@ getData <- function() {
                 # if a shortcut exists just load the subset and prepare data
                 data<-read.csv("./data/short.csv")
                 data$Date<-as.Date(data$Date)
-                data$Time<-strptime(data$Time,"%Y-%m-%d %H:%M:%S")                
+                data$Time<-strptime(paste(data$Date, data$Time),
+                                    "%Y-%m-%d %H:%M:%S")
         } else {
                 # if the original file is not available yet, download and unzip
                 if(!file.exists('data/household_power_consumption.txt')) {
