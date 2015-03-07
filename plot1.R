@@ -9,7 +9,7 @@ data<-read.csv("./data/household_power_consumption.txt",
 data$Date<-as.Date(data$Date, "%d/%m/%Y")
 data<-data[data$Date>=as.Date("2007-02-01") & 
                    data$Date<=as.Date("2007-02-02"),]
-#write.csv(data)
+write.csv(data, "./data/short.csv")
 data$Time<-strptime(paste(data$Date, data$Time),"%Y-%m-%d %H:%M:%S")
 #data<-read.csv("./data/short.csv")
 #data$Date<-as.Date(data$Date)
